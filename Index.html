@@ -34,15 +34,17 @@
         <button type="button" class="btn btn-outline-danger">SALIDA</button>
     </div>
 
-    <form id="form" class="d-none row g-3 d-flex justify-content-center">
+    <!-- <form id="form" class="d-none row g-3 d-flex justify-content-center"> -->
+      <div id="form" class="d-none row g-3 d-flex justify-content-center">
         <div class="col-auto">
-          <input type="text" class=" form-control" placeholder="PLACA">
+          <input type="text" class="form-control" placeholder="PLACA" onkeypress="cambiarNombre(event)">
           <p class="text-danger mb-2 d-none" id="alertName">error</p>
         </div>
         <div class="col-auto">
           <button type="button" class="btn btn-primary mb-3">Confirmar</button>
         </div>
-      </form>
+      </div>
+      <!-- </form> -->
 
 <div id="tike" class="d-none d-flex justify-content-center container">
     <h6 class="text-success card border-success mb-3 list-group-item">

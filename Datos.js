@@ -107,7 +107,13 @@ const alerta = () => {
     
 }
 
-const btnConfir = (e) => {
+const cambiarNombre = (event) => {
+    if (event.key === "Enter") {
+        btnConfir()
+    }
+}
+
+const btnConfir = () => {
     const copiaPlaca = datosClientes.findIndex((item) => item.Placa === datosModif[0].value)
     if(datosModif[0].value === ""){
        alerta();
