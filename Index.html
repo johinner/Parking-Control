@@ -55,7 +55,7 @@
           <h5>Estacionamiento</h5>
           <span class="estacion">A01</span>
         </div>
-        <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="info-total border-success list-group-item ">COSTO POR HORA <span class="total">$1000 pesos</span></div>
+        <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="info-total border-success list-group-item ">...</div>
       </h6>
 </div>
 
@@ -80,35 +80,45 @@
 </div>
 <button id="historialClientes" type="button" class="mx-5 btn btn-secondary btn-sm">Historial Clientes</button>
 
-<div class="containerHistorial m-3 ">
-  <div id="tike" class=" d-flex justify-content-around container">
-    <h6 class="text-success card border-success mb-3 list-group-item">
-        <div class="card-header border-success d-flex justify-content-between">PLACA<span class="placa">5PK3J</span></div>
-        <div class="card-body text-success">
-          <h5>Fecha Ingreso</h5>
-          <span class="fechaIngreso">12/03/22</span>
-          <h5>Hora Ingreso</h5>
-          <span class="horaIngreso">12:09</span>
-          <h5>Estacionamiento</h5>
-          <span class="estacion">A01</span>
-        </div>
-        <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="info-total border-success list-group-item ">COSTO POR HORA <span class="total">$1000 pesos</span></div>
-      </h6>
+<section class="container mt-3">
+  <ol class="list-group" id="listaClientes">
 
+  </ol>
+</section> 
+
+<template id="template">
+
+  <li class="list-group-item bg-secondary containerHistorial m-3">
+    <div id="tike" class=" d-flex justify-content-around container">
       <h6 class="text-success card border-success mb-3 list-group-item">
-        <div class="card-header border-success d-flex justify-content-between">PLACA<span class="placa">5PK3J</span></div>
-        <div class="card-body text-success">
-          <h5>Fecha Salida</h5>
-          <span class="fechaSalida">12/03/22</span>
-          <h5>Hora Salida</h5>
-          <span class="horaSalida">12:09</span>
-          <h5>Estacionamiento</h5>
-          <span class="estacion">A01</span>
-        </div>
-        <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="info-total border-success list-group-item ">TOTAL CANCELACION <span class="total">$1000 pesos</span></div>
-      </h6>
-</div>
-</div>
+          <div class="card-header border-success d-flex justify-content-between">PLACA<span class="placaIngreso">5PK3J</span></div>
+          <div class="card-body text-success">
+            <h5>Fecha Ingreso</h5>
+            <span class="fechaIngreso">12/03/22</span>
+            <h5>Hora Ingreso</h5>
+            <span class="horaIngreso">12:09</span>
+            <h5>Estacionamiento</h5>
+            <span class="estacionIngreso">A01</span>
+          </div>
+          <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="infoCosto border-success list-group-item ">...</div>
+        </h6>
+  
+        <h6 class="text-success card border-success mb-3 list-group-item">
+          <div class="card-header border-success d-flex justify-content-between">PLACA<span class="placaSalida">5PK3J</span></div>
+          <div class="card-body text-success">
+            <h5>Fecha Salida</h5>
+            <span class="fechaSalida">12/03/22</span>
+            <h5>Hora Salida</h5>
+            <span class="horaSalida">12:09</span>
+            <h5>Estacionamiento</h5>
+            <span class="estacionSalida">A01</span>
+          </div>
+          <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="infoTotal border-success list-group-item ">...</div>
+        </h6>
+  </div>
+  </li>  
+</template>
+
 
   <div class="card-footer text-muted">
     @Johinner M.C

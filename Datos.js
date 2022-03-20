@@ -1,11 +1,15 @@
 console.log("vinculado");
 const form = document.getElementById("form");
 const tike = document.getElementById("tike");
+const template = document.getElementById("template");
+const listaClientes = document.getElementById("listaClientes");
+const fragment = new DocumentFragment();
 const alertName = document.getElementById("alertName")
 const datosModif = document.querySelectorAll(
-    ".form-control, .container span, .info-fecha, .info-hora, .info-total"
+    ".form-control, .container span, .info-fecha, .info-hora, .info-total, .total"
 );
-let totalCancelacion = "";
+let totalCancelacion = 0;
+let costoXhora = 1000;
 let ingreso_salida = "";
 let numerosCupos = 3;
 const datosClientes = [];
@@ -44,7 +48,7 @@ for (i = 0; i < numerosCupos; i++) {
             Hora: "null",
         },
         estacionamiento: "null",
-        cancelacion: 00
+        cancelacion: 300
     });
 }
 
@@ -57,7 +61,14 @@ document.addEventListener("click", (e) => {
     }
     if (e.target.matches(".col-auto .btn")) {
         btnConfir(e);
-    }    
+    }
+    if(e.target.matches("#historialClientes")){
+        mostrarHistorial();
+        tike.classList.add("d-none");
+        console.log(datosClientes);
+        console.log(historialClientes);
+        console.log(datosModif)
+    }
 });
 
 const mostarTike = () => {
@@ -75,6 +86,7 @@ const btnIngreso = () => {
     tike.classList.add("d-none");
     alertName.classList.add("d-none")
     datosModif[0].classList.remove("is-invalid")
+    listaClientes.textContent = "";
 };
 const btnSalida = () => {
     ingreso_salida = "Salida";
@@ -82,6 +94,7 @@ const btnSalida = () => {
     tike.classList.add("d-none");
     alertName.classList.add("d-none")
     datosModif[0].classList.remove("is-invalid")
+    listaClientes.textContent = "";
 
 
 };
@@ -120,6 +133,8 @@ const btnConfir = (e) => {
             datosModif[1].textContent = datosClientes[indice].Placa;
             datosClientes[indice].ingreso.Fecha = mostrarFecha();
             datosClientes[indice].ingreso.Hora = monstrarHora();
+            datosModif[7].textContent = `Costo X Hora $${costoXhora}`
+
             let estacion = () => {
                 if (indice < 9){
                     return `0${indice+1}`
@@ -146,22 +161,37 @@ const btnConfir = (e) => {
             datosClientes[indice].salida.Fecha = mostrarFecha();
             datosClientes[indice].salida.Hora = monstrarHora();
             datosModif[6].textContent = datosClientes[indice].estacionamiento;
-            datosModif[7].textContent = `TOTAL CANCELACION ${totalCancelacion}`
+            datosModif[7].textContent = `Total Cancelacion $${datosClientes[indice].cancelacion}`
             mostarTike();
-            borrarDatosClientes(indice)
+            copiaDatosClientes(indice);
+            borrarDatosClientes(indice);
         }else{
-            datosModif[0].classList.add("is-invalid")
+            datosModif[0].classList.add("is-invalid");
             form.classList.remove("d-none");
-            alertName.classList.remove("d-none")
+            alertName.classList.remove("d-none");
             alertName.textContent = "Placa No Registrada en el Sistema"
         }
     }
 };
 
-const borrarDatosClientes = (indice) => {
-    temporar = datosClientes[indice];
-    historialClientes.push(temporar);
+const copiaDatosClientes = (indice) => {
+    historialClientes.push({
+        Placa: datosClientes[indice].Placa,
+        ingreso: {
+            Fecha: datosClientes[indice].ingreso.Fecha,
+            Hora: datosClientes[indice].ingreso.Hora,
+        },
+        salida: {
+            Fecha: datosClientes[indice].salida.Fecha,
+            Hora: datosClientes[indice].salida.Hora,
+        },
+        estacionamiento: datosClientes[indice].estacionamiento,
+        cancelacion: 00
+    });
 
+}
+
+const borrarDatosClientes = (indice) => {
     datosClientes[indice].Placa = "null"
     datosClientes[indice].ingreso.Fecha = "null"
     datosClientes[indice].ingreso.Hora = "null"
@@ -169,6 +199,23 @@ const borrarDatosClientes = (indice) => {
     datosClientes[indice].salida.Hora = "null"
     datosClientes[indice].estacionamiento = "null"
     datosClientes[indice].cancelacion = 0
+}
 
-    console.log(temporar);
+const mostrarHistorial = () => {
+    listaClientes.textContent = "";
+    historialClientes.forEach((item) => {
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".placaIngreso").textContent = item.Placa;
+        clone.querySelector(".placaSalida").textContent = item.Placa;
+        clone.querySelector(".fechaIngreso").textContent = item.ingreso.Fecha;
+        clone.querySelector(".horaIngreso").textContent = item.ingreso.Hora;
+        clone.querySelector(".fechaSalida").textContent = item.salida.Fecha;
+        clone.querySelector(".horaSalida").textContent = item.salida.Hora;
+        clone.querySelector(".estacionIngreso").textContent = item.estacionamiento;
+        clone.querySelector(".estacionSalida").textContent = item.estacionamiento;
+        clone.querySelector(".infoCosto").textContent =`Costo X Hora $${costoXhora}`;
+        clone.querySelector(".infoTotal").textContent = `Total Cancelacion $${item.cancelacion}`
+        fragment.appendChild(clone);
+    })
+    listaClientes.appendChild(fragment);
 }
