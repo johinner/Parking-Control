@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Control Parqueadero</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<style>
-    body{
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
         background-color: rgb(198, 198, 245);
-    }
-    span{
+      }
+      span {
         color: black;
         margin-right: 1rem;
         margin-left: 2rem;
         justify-content: center;
-        display:flex;
+        display: flex;
         margin: auto;
         padding-top: 5px;
-    }
-    h5{
-      margin-bottom:0px;
-      margin-top: 5px;
-    }
-</style>
+      }
+      h5 {
+        margin-bottom: 0px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
 
-</head>
-<body>
-  
     <h2 class="d-flex justify-content-around mb-3 mt-2">GUARDE SEGURO</h2>
     <div class="containerButton mb-5 d-flex justify-content-around">
-        <button type="button" class="btn btn-outline-success ">INGRESO</button>
-        <button type="button" class="btn btn-outline-danger">SALIDA</button>
+      <button type="button" class="btn btn-outline-success">INGRESO</button>
+      <button type="button" class="btn btn-outline-danger">SALIDA</button>
     </div>
 
-    <!-- <form id="form" class="d-none row g-3 d-flex justify-content-center"> -->
-      <div id="form" class="d-none row g-3 d-flex justify-content-center">
-        <div class="col-auto">
-          <input type="text" class="form-control" placeholder="PLACA" onkeypress="cambiarNombre(event)">
-          <p class="text-danger mb-2 d-none" id="alertName">error</p>
-        </div>
-        <div class="col-auto">
-          <button type="button" class="btn btn-primary mb-3">Confirmar</button>
-        </div>
+    <!-- </form> -->
+    <form id="form" class="d-none row g-3 d-flex justify-content-center">
+      <div class="col-auto">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="PLACA"
+        />
+        <p class="text-danger mb-2 d-none" id="alertName">error</p>
       </div>
-      <!-- </form> -->
-
-<div id="tike" class="d-none d-flex justify-content-center container">
-    <h6 class="text-success card border-success mb-3 list-group-item">
-        <div class="card-header border-success d-flex justify-content-between">PLACA<span class="placa">5PK3J</span></div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-primary mb-3">Confirmar</button>
+      </div>
+    </form>
+    
+    <!-- tike -->
+    <div id="tike" class="d-none d-flex justify-content-center container">
+      <div class="text-success card border-success mb-3 list-group-item">
+        <div class="card-header border-success d-flex justify-content-between">
+          PLACA<span class="placa">5PK3J</span>
+        </div>
         <div class="card-body text-success">
           <h5 class="info-fecha">Fecha Ingreso</h5>
           <span class="fecha">12/03/22</span>
@@ -57,76 +67,134 @@
           <h5>Estacionamiento</h5>
           <span class="estacion">A01</span>
         </div>
-        <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="info-total border-success list-group-item ">...</div>
-      </h6>
-</div>
-
-
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-    </symbol>
-  </svg>
-
-<div class="alert alert-primary d-flex align-items-center" role="alert">
-    <div>
-    <ul>
-<li>Deje su vehículo o moto correctamente ubicado dentro del lugar demarcado.</li>
-<li>Cierre las puertas y ventanas de su vehículo y active la alarma.</li>
-<li>Evite dejar paquetes, accesorios u objetos de valor a la vista dentro del vehículo.</li>
-    </ul>
-    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-
-        GUARDE SUGURO no se hace responsable por daños causados a vehículos, motos y bicicletas producidos por desastres  naturales, asonadas, revueltas civiles, actos terroristas o cualquier acto que se produzca sin culpabilidad.
+        <div
+          style="
+            background-color: rgba(197, 210, 253, 0.274);
+            border-radius: 10px;
+          "
+          class="info-total border-success list-group-item"
+        >
+          ...
+        </div>
+      </div>
     </div>
-</div>
-<button id="historialClientes" type="button" class="mx-5 btn btn-secondary btn-sm">Historial Clientes</button>
-
-<section class="container mt-3">
-  <ol class="list-group" id="listaClientes">
-
-  </ol>
-</section> 
-
-<template id="template">
-
-  <li class="list-group-item bg-secondary containerHistorial m-3">
-    <div id="tike" class=" d-flex justify-content-around container">
-      <h6 class="text-success card border-success mb-3 list-group-item">
-          <div class="card-header border-success d-flex justify-content-between">PLACA<span class="placaIngreso">5PK3J</span></div>
-          <div class="card-body text-success">
-            <h5>Fecha Ingreso</h5>
-            <span class="fechaIngreso">12/03/22</span>
-            <h5>Hora Ingreso</h5>
-            <span class="horaIngreso">12:09</span>
-            <h5>Estacionamiento</h5>
-            <span class="estacionIngreso">A01</span>
-          </div>
-          <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="infoCosto border-success list-group-item ">...</div>
-        </h6>
-  
-        <h6 class="text-success card border-success mb-3 list-group-item">
-          <div class="card-header border-success d-flex justify-content-between">PLACA<span class="placaSalida">5PK3J</span></div>
-          <div class="card-body text-success">
-            <h5>Fecha Salida</h5>
-            <span class="fechaSalida">12/03/22</span>
-            <h5>Hora Salida</h5>
-            <span class="horaSalida">12:09</span>
-            <h5>Estacionamiento</h5>
-            <span class="estacionSalida">A01</span>
-          </div>
-          <div style="background-color: rgba(197, 210, 253, 0.274); border-radius: 10px;" class="infoTotal border-success list-group-item ">...</div>
-        </h6>
-  </div>
-  </li>  
-</template>
 
 
-  <div class="card-footer text-muted">
-    @Johinner M.C
-  </div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol
+        id="exclamation-triangle-fill"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </symbol>
+    </svg>
 
+    <div class="alert alert-primary d-flex align-items-center" role="alert">
+      <div>
+        <ul>
+          <li>
+            Deje su vehículo o moto correctamente ubicado dentro del lugar
+            demarcado.
+          </li>
+          <li>
+            Cierre las puertas y ventanas de su vehículo y active la alarma.
+          </li>
+          <li>
+            Evite dejar paquetes, accesorios u objetos de valor a la vista
+            dentro del vehículo.
+          </li>
+        </ul>
+        <svg
+          class="bi flex-shrink-0 me-2"
+          width="24"
+          height="24"
+          role="img"
+          aria-label="Info:"
+        >
+          <use xlink:href="#exclamation-triangle-fill" />
+        </svg>
+
+        GUARDE SUGURO no se hace responsable por daños causados a vehículos,
+        motos y bicicletas producidos por desastres naturales, asonadas,
+        revueltas civiles, actos terroristas o cualquier acto que se produzca
+        sin culpabilidad.
+      </div>
+    </div>
+    <button
+      id="historialClientes"
+      type="button"
+      class="mx-5 btn btn-secondary btn-sm"
+    >
+      Historial Clientes
+    </button>
+
+    <section class="container mt-3">
+      <ol class="list-group" id="listaClientes"></ol>
+    </section>
+
+    <template id="template">
+      <li class="list-group-item bg-secondary containerHistorial m-3">
+        <div id="tike" class="d-flex justify-content-around container">
+          <h6 class="text-success card border-success mb-3 list-group-item">
+            <div
+              class="card-header border-success d-flex justify-content-between"
+            >
+              PLACA<span class="placaIngreso">5PK3J</span>
+            </div>
+            <div class="card-body text-success">
+              <h5>Fecha Ingreso</h5>
+              <span class="fechaIngreso">12/03/22</span>
+              <h5>Hora Ingreso</h5>
+              <span class="horaIngreso">12:09</span>
+              <h5>Estacionamiento</h5>
+              <span class="estacionIngreso">A01</span>
+            </div>
+            <div
+              style="
+                background-color: rgba(197, 210, 253, 0.274);
+                border-radius: 10px;
+              "
+              class="infoCosto border-success list-group-item"
+            >
+              ...
+            </div>
+          </h6>
+
+          <h6 class="text-success card border-success mb-3 list-group-item">
+            <div
+              class="card-header border-success d-flex justify-content-between"
+            >
+              PLACA<span class="placaSalida">5PK3J</span>
+            </div>
+            <div class="card-body text-success">
+              <h5>Fecha Salida</h5>
+              <span class="fechaSalida">12/03/22</span>
+              <h5>Hora Salida</h5>
+              <span class="horaSalida">12:09</span>
+              <h5>Estacionamiento</h5>
+              <span class="estacionSalida">A01</span>
+            </div>
+            <div
+              style="
+                background-color: rgba(197, 210, 253, 0.274);
+                border-radius: 10px;
+              "
+              class="infoTotal border-success list-group-item"
+            >
+              ...
+            </div>
+          </h6>
+        </div>
+      </li>
+    </template>
+
+    <div class="card-footer text-muted">@Johinner M.C</div>
+
+    <script src="/js/dateFunction.js"></script>
+    <script src="/js/quotaNumbers.js"></script>
     <script src="/Datos.js"></script>
-
-</body>
+  </body>
 </html>
