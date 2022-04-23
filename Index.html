@@ -32,6 +32,9 @@
         background-color: rgba(197, 210, 253, 0.274);
         border-radius: 10px;
       }
+      .trazo{
+        border-top: dotted 5px;
+      }
     </style>
   </head>
   <body>
@@ -58,6 +61,10 @@
       </div>
     </form>
 
+    <!-- alert -->
+
+    <div id="alert" class="container"></div>
+
     <!-- ticket -->
     <div id="ticket" class="d-flex justify-content-center container"></div>
 
@@ -66,8 +73,11 @@
       <symbol
         id="exclamation-triangle-fill"
         fill="currentColor"
-        viewBox="0 0 16 16"><path
-          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
       </symbol>
     </svg>
 
@@ -112,66 +122,8 @@
     >
       Historial Clientes
     </button>
+      <div class="card d-flex justify-content-center container m-5" id="listaClientes"></div>
 
-    <section class="container mt-3">
-      <ol class="list-group" id="listaClientes"></ol>
-    </section>
-
-    <template id="template">
-      <li class="list-group-item bg-secondary containerHistorial m-3">
-        <div id="tike" class="d-flex justify-content-around container">
-          <h6 class="text-success card border-success mb-3 list-group-item">
-            <div
-              class="card-header border-success d-flex justify-content-between"
-            >
-              PLACA<span class="placaIngreso">5PK3J</span>
-            </div>
-            <div class="card-body text-success">
-              <h5>Fecha Ingreso</h5>
-              <span class="fechaIngreso">12/03/22</span>
-              <h5>Hora Ingreso</h5>
-              <span class="horaIngreso">12:09</span>
-              <h5>Estacionamiento</h5>
-              <span class="estacionIngreso">A01</span>
-            </div>
-            <div
-              style="
-                background-color: rgba(197, 210, 253, 0.274);
-                border-radius: 10px;
-              "
-              class="infoCosto border-success list-group-item"
-            >
-              ...
-            </div>
-          </h6>
-
-          <h6 class="text-success card border-success mb-3 list-group-item">
-            <div
-              class="card-header border-success d-flex justify-content-between"
-            >
-              PLACA<span class="placaSalida">5PK3J</span>
-            </div>
-            <div class="card-body text-success">
-              <h5>Fecha Salida</h5>
-              <span class="fechaSalida">12/03/22</span>
-              <h5>Hora Salida</h5>
-              <span class="horaSalida">12:09</span>
-              <h5>Estacionamiento</h5>
-              <span class="estacionSalida">A01</span>
-            </div>
-            <div
-              style="
-                background-color: rgba(197, 210, 253, 0.274);
-                border-radius: 10px;
-              "
-              class="infoTotal border-success list-group-item"
-            >
-              ...
-            </div>
-          </h6>
-        </div>
-      </li>
-    </template>
 
     <div class="card-footer text-muted">@Johinner M.C</div>
 
@@ -179,6 +131,5 @@
     <script src="/js/form.js"></script>
     <script src="/js/document.js"></script>
     <script src="/js/customerData.js"></script>
-    <!-- <script src="/Datos.js"></script> -->
   </body>
 </html>

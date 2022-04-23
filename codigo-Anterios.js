@@ -18,7 +18,7 @@ const historialClientes = [];
 document.addEventListener("click", (e) => {
     if (e.target.matches(".btn-outline-success")) {
         btnIngreso();
-    }
+    }historialClientes
     if (e.target.matches(".btn-outline-danger")) {
         btnSalida();
     }
@@ -118,7 +118,7 @@ const btnConfir = () => {
             form.classList.remove("d-none");
             alertName.classList.remove("d-none")
             alertName.textContent = "No Hay Estacionamiento Disponible"
-        }
+        }historialClientes
        
        
     }
